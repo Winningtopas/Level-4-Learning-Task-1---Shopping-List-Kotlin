@@ -2,7 +2,6 @@ package com.example.shoppinglistkotlin
 
 import android.content.Context
 
-class ProductRepository(context: Context) {
 
     class ProductRepository(context: Context) {
 
@@ -22,4 +21,3 @@ class ProductRepository(context: Context) {
         suspend fun deleteAllProducts() = productDao.deleteAllProducts()
 
     }
-}
