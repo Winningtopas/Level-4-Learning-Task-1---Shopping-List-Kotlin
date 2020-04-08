@@ -8,6 +8,7 @@ import android.content.Context
         private val productDao: ProductDao
 
         init {
+
             val database = ShoppingListRoomDatabase.getDatabase(context)
             productDao = database!!.productDao()
         }
