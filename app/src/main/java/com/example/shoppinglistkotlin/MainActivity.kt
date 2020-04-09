@@ -122,12 +122,25 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+
+    private fun deleteShoppingList() {
+        mainScope.launch {
+            withContext(Dispatchers.IO) {
+                productRepository.deleteAllProducts()
+            }
+            getShoppingListFromDatabase()
+        }
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_delete_shopping_list -> {
+                deleteShoppingList()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
